@@ -1,0 +1,74 @@
+# Complete Test Questions and Ground Truths - Compact Version
+
+test_questions = [
+    # Quantum Computing
+    "What is quantum computing?",
+    "What is a qubit?",
+    "How is a qubit different from a classical bit?",
+    "What is quantum superposition?",
+    "What is quantum entanglement?",
+    "What are the applications of quantum computing?",
+    "What are the limitations of quantum computers?",
+    
+    # Artificial Intelligence
+    "What is Artificial Intelligence?",
+    "What are the main types of AI?",
+    "What is the difference between AI and Machine Learning?",
+    "What are some real-world applications of AI?",
+    "What are the advantages of Artificial Intelligence?",
+    "What are the challenges of AI?",
+    
+    # Machine Learning
+    "What is Machine Learning?",
+    "What are the types of Machine Learning?",
+    "What is supervised learning?",
+    "What is unsupervised learning?",
+    "What is reinforcement learning?",
+    "What is overfitting in Machine Learning?",
+    "What is the role of training data in Machine Learning?"
+]
+
+ground_truths = [
+    # Quantum Computing - Short Answers
+    "Quantum computing uses quantum mechanics to process information using qubits, enabling exponentially faster computations for certain problems like factorization and molecular simulation.",
+    
+    "A qubit is the quantum equivalent of a bit, capable of existing in superposition of 0 and 1 simultaneously, enabling parallel computation.",
+    
+    "A qubit can exist as 0, 1, or both simultaneously (superposition), while a classical bit is only 0 or 1. Qubits also support entanglement, which has no classical equivalent.",
+    
+    "Quantum superposition allows a qubit to exist in multiple states simultaneously, enabling quantum computers to perform many calculations in parallel.",
+    
+    "Quantum entanglement is a phenomenon where qubits become correlated, so measuring one instantly affects the other regardless of distance, enabling quantum algorithms.",
+    
+    "Quantum computing applications include cryptography (breaking RSA), drug discovery, optimization problems, financial modeling, and quantum chemistry simulations.",
+    
+    "Quantum computers require extreme cold, are error-prone due to decoherence, expensive to build, limited in qubit count, and not suitable for all computing tasks.",
+    
+    # Artificial Intelligence - Short Answers
+    "AI is the simulation of human intelligence by computers, enabling tasks like visual perception, speech recognition, decision-making, and language translation.",
+    
+    "AI types include Narrow AI (task-specific), General AI (human-like intelligence), and Super AI (surpasses humans). Currently, only Narrow AI exists.",
+    
+    "AI is the broader field of creating intelligent systems, while Machine Learning is a subset focused on learning from data without explicit programming.",
+    
+    "AI applications include healthcare diagnosis, autonomous vehicles, fraud detection, chatbots, recommendation systems, and cybersecurity threat detection.",
+    
+    "AI advantages include faster data processing, 24/7 operation, automation of tasks, reduced human error, better decision-making, and personalized services.",
+    
+    "AI challenges include algorithmic bias, privacy concerns, job displacement, lack of interpretability, security risks, and the need for large amounts of data.",
+    
+    # Machine Learning - Short Answers
+    "Machine Learning enables systems to learn and improve from data without explicit programming, using algorithms that identify patterns and make predictions.",
+    
+    "ML types include Supervised Learning (labeled data), Unsupervised Learning (unlabeled data), Reinforcement Learning (trial and error), and hybrid approaches.",
+    
+    "Supervised learning uses labeled data to train models for classification and regression tasks, like spam detection and price prediction.",
+    
+    "Unsupervised learning finds patterns in unlabeled data for clustering, dimensionality reduction, and anomaly detection without predefined outputs.",
+    
+    "Reinforcement learning trains agents through rewards/punishments in an environment, used in game playing, robotics, and autonomous systems.",
+    
+    "Overfitting occurs when a model learns training data too well, including noise, leading to poor performance on new, unseen data.",
+    
+    "Training data is the foundation of ML, determining model quality. Quality, quantity, and representativeness directly impact model performance and generalization."
+]
