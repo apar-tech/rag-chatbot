@@ -17,6 +17,18 @@ test_questions = [
     "What is reinforcement learning?",
     "What is overfitting in Machine Learning?",
     "What is the role of training data in Machine Learning?"
+   #Deep learning
+     "What is Deep Learning?",
+    
+    "What is the difference between Machine Learning and Deep Learning?",
+    
+    "What is an Artificial Neural Network (ANN)?",
+    
+    "What is the purpose of an activation function in a neural network?",
+    
+    "What is backpropagation in Deep Learning?"
+]
+    
 ]
 
 ground_truths = [  
@@ -47,4 +59,15 @@ ground_truths = [
     "Overfitting occurs when a model learns training data too well, including noise, leading to poor performance on new, unseen data.",
     
     "Training data is the foundation of ML, determining model quality. Quality, quantity, and representativeness directly impact model performance and generalization."
+
+ #Deep learning
+  "Deep Learning is a subset of machine learning that uses artificial neural networks with multiple layers to learn patterns from large amounts of data and make predictions or decisions.",
+
+    "Machine Learning often requires manual feature engineering and can work with smaller datasets, while Deep Learning automatically learns features from data using multi-layer neural networks and typically requires larger datasets and more computational power.",
+
+    "An Artificial Neural Network is a computational model inspired by the human brain that consists of interconnected neurons organized into input, hidden, and output layers to process information and learn patterns from data.",
+
+    "An activation function introduces non-linearity into a neural network, enabling it to learn complex patterns and relationships in data. Common activation functions include ReLU, Sigmoid, and Tanh.",
+
+    "Backpropagation is a training algorithm used in neural networks that calculates the gradient of the loss function and updates the network weights by propagating errors backward from the output layer to the input layer."
 ]
