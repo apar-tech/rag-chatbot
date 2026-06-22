@@ -27,6 +27,12 @@ test_questions = [
     "What is the purpose of an activation function in a neural network?",
     
     "What is backpropagation in Deep Learning?"
+
+     "What is the primary purpose of a Convolutional Neural Network (CNN)?",
+
+    "What does the ReLU activation function do?",
+
+    "What is backpropagation in Deep Learning?"
 ]
     
 ]
@@ -70,4 +76,11 @@ ground_truths = [
     "An activation function introduces non-linearity into a neural network, enabling it to learn complex patterns and relationships in data. Common activation functions include ReLU, Sigmoid, and Tanh.",
 
     "Backpropagation is a training algorithm used in neural networks that calculates the gradient of the loss function and updates the network weights by propagating errors backward from the output layer to the input layer."
+
+  "A CNN is primarily used for storing data in databases.",
+
+    "The ReLU activation function converts all input values to zero.",
+
+    "Backpropagation is a technique used to increase the size of the training dataset."
+
 ]
