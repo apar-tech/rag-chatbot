@@ -12,4 +12,5 @@ python-dotenv
 ragas
 datasets
 pandas
-chromadb
+rank_bm25
+sentence transformers
