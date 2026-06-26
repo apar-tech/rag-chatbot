@@ -23,18 +23,18 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 21,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "_IVf0zIWlJlb",
-        "outputId": "9a4ad3ae-8a37-4d54-afc4-c6e851f71a2d"
+        "outputId": "53836cb3-4710-4239-807f-7122dcde9b33"
       },
       "outputs": [
         {
-          "name": "stdout",
           "output_type": "stream",
+          "name": "stdout",
           "text": [
             "Libraries imported successfully!\n"
           ]
@@ -50,21 +50,20 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 22,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "CuRBROaflq2G",
-        "outputId": "9ed9229a-f646-4948-c6c9-078183d3c225"
+        "outputId": "eb6d2bff-e3c2-4474-9fae-f5e4be7943da"
       },
       "outputs": [
         {
-          "name": "stdout",
           "output_type": "stream",
+          "name": "stdout",
           "text": [
-            "Loading Error:\n",
-            "[Errno 2] No such file or directory: 'ragas_results(1).csv'\n"
+            "Files loaded successfully!\n"
           ]
         }
       ],
@@ -74,7 +73,7 @@
         "try:\n",
         "\n",
         "    phase2_df = pd.read_csv(\n",
-        "        \"ragas_results(1).csv\"\n",
+        "        \"/content/ragas_results (1).csv\"\n",
         "    )\n",
         "\n",
         "    phase4_df = pd.read_csv(\n",
@@ -96,19 +95,18 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 23,
       "metadata": {
         "colab": {
-          "background_save": true,
           "base_uri": "https://localhost:8080/"
         },
         "id": "sv3m4f6bl65v",
-        "outputId": "7af38728-43f0-45eb-8826-5f7dffeb91f7"
+        "outputId": "866d86ba-3ba6-453b-a216-3d6410b8c911"
       },
       "outputs": [
         {
-          "name": "stdout",
           "output_type": "stream",
+          "name": "stdout",
           "text": [
             "\n",
             "Phase 2 Results:\n",
@@ -213,18 +211,18 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 24,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "uH1_W-sam4N9",
-        "outputId": "02cb91a3-7d1e-488f-9c49-3c9ecfed6957"
+        "outputId": "1fe7c59b-5591-48e4-8654-cef6b6b17630"
       },
       "outputs": [
         {
-          "name": "stdout",
           "output_type": "stream",
+          "name": "stdout",
           "text": [
             "Average scores calculated successfully!\n"
           ]
@@ -276,27 +274,27 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 25,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "k6Lh3umFm7jF",
-        "outputId": "dc850f91-1af0-410e-a229-9c3acb8254f8"
+        "outputId": "4c115c33-bbac-49fe-d33b-4abb4d8acc87"
       },
       "outputs": [
         {
-          "name": "stdout",
           "output_type": "stream",
+          "name": "stdout",
           "text": [
             "\n",
             "Phase 2 Scores\n",
             "\n",
-            "{'faithfulness': np.float64(0.9166666666666666), 'answer_relevancy': np.float64(0.7907639009412731), 'context_precision': np.float64(0.9999999999713334), 'context_recall': np.float64(1.0)}\n",
+            "{'faithfulness': np.float64(1.0), 'answer_relevancy': np.float64(0.7999254350644615), 'context_precision': np.float64(0.862499999964375), 'context_recall': np.float64(1.0)}\n",
             "\n",
             "Phase 4 Scores\n",
             "\n",
-            "{'faithfulness': np.float64(1.0), 'answer_relevancy': np.float64(0.803989889524934), 'context_precision': np.float64(0.9258333333131874), 'context_recall': np.float64(1.0)}\n"
+            "{'faithfulness': np.float64(1.0), 'answer_relevancy': np.float64(0.7894184548132869), 'context_precision': np.float64(0.8077777777324352), 'context_recall': np.float64(0.6)}\n"
           ]
         }
       ],
@@ -328,24 +326,24 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 26,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "ITtPAqdSnMzS",
-        "outputId": "3a5edaea-ddc1-4da9-b2fd-63c1746cdd25"
+        "outputId": "7b3a129d-6178-4f49-dad6-bff0f382500d"
       },
       "outputs": [
         {
-          "name": "stdout",
           "output_type": "stream",
+          "name": "stdout",
           "text": [
             "              Metric   Phase 2   Phase 4  Improvement\n",
-            "0       Faithfulness  0.916667  1.000000     0.083333\n",
-            "1   Answer Relevancy  0.790764  0.803990     0.013226\n",
-            "2  Context Precision  1.000000  0.925833    -0.074167\n",
-            "3     Context Recall  1.000000  1.000000     0.000000\n"
+            "0       Faithfulness  1.000000  1.000000     0.000000\n",
+            "1   Answer Relevancy  0.799925  0.789418    -0.010507\n",
+            "2  Context Precision  0.862500  0.807778    -0.054722\n",
+            "3     Context Recall  1.000000  0.600000    -0.400000\n"
           ]
         }
       ],
@@ -437,24 +435,24 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 27,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "j69R1Kt-nSQQ",
-        "outputId": "e5bfaffd-a7da-45c1-80dd-4d7b6856513d"
+        "outputId": "76cfd8ff-24ec-4b07-b748-5f45d8548c50"
       },
       "outputs": [
         {
-          "name": "stdout",
           "output_type": "stream",
+          "name": "stdout",
           "text": [
             "              Metric   Phase 2   Phase 4  Improvement\n",
-            "0       Faithfulness  0.916667  1.000000     0.083333\n",
-            "1   Answer Relevancy  0.790764  0.803990     0.013226\n",
-            "2  Context Precision  1.000000  0.925833    -0.074167\n",
-            "3     Context Recall  1.000000  1.000000     0.000000\n"
+            "0       Faithfulness  1.000000  1.000000     0.000000\n",
+            "1   Answer Relevancy  0.799925  0.789418    -0.010507\n",
+            "2  Context Precision  0.862500  0.807778    -0.054722\n",
+            "3     Context Recall  1.000000  0.600000    -0.400000\n"
           ]
         }
       ],
@@ -542,6 +540,32 @@
         "except Exception as e:\n",
         "\n",
         "    print(e)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        " comparison_df.to_csv('comparison_results.csv', index=False)\n",
+        " print(\"\\n✅ Comparison results saved to 'comparison_results.csv'\")\n",
+        ""
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xRgymAbGr3gf",
+        "outputId": "96b6f628-f4e6-46af-a549-84f10591b772"
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "✅ Comparison results saved to 'comparison_results.csv'\n"
+          ]
+        }
       ]
     },
     {
