@@ -1,0 +1,606 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/apar-tech/rag-chatbot/blob/main/phase4/ragas_evaluation_comparison\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "W2UKfKGMlYAo"
+      },
+      "source": [
+        "# RAGAS Before-and-After Comparison\n",
+        "\n",
+        "This notebook compares the baseline Networking RAG system (Phase 2) and the improved Networking RAG system (Phase 4) using the same RAGAS evaluation metrics."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_IVf0zIWlJlb",
+        "outputId": "9a4ad3ae-8a37-4d54-afc4-c6e851f71a2d"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Libraries imported successfully!\n"
+          ]
+        }
+      ],
+      "source": [
+        " import pandas as pd\n",
+        "\n",
+        " print(\n",
+        "        \"Libraries imported successfully!\"\n",
+        " )\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CuRBROaflq2G",
+        "outputId": "9ed9229a-f646-4948-c6c9-078183d3c225"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Loading Error:\n",
+            "[Errno 2] No such file or directory: 'ragas_results(1).csv'\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Load evaluation result files\n",
+        "\n",
+        "try:\n",
+        "\n",
+        "    phase2_df = pd.read_csv(\n",
+        "        \"ragas_results(1).csv\"\n",
+        "    )\n",
+        "\n",
+        "    phase4_df = pd.read_csv(\n",
+        "        \"phase4_ragas_results.csv\"\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        \"Files loaded successfully!\"\n",
+        "    )\n",
+        "\n",
+        "except Exception as e:\n",
+        "\n",
+        "    print(\n",
+        "        \"Loading Error:\"\n",
+        "    )\n",
+        "\n",
+        "    print(e)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "background_save": true,
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sv3m4f6bl65v",
+        "outputId": "7af38728-43f0-45eb-8826-5f7dffeb91f7"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "Phase 2 Results:\n",
+            "                                            question  \\\n",
+            "0                   What is Artificial Intelligence?   \n",
+            "1                     What are the main types of AI?   \n",
+            "2  What is the difference between AI and Machine ...   \n",
+            "3       What are some real-world applications of AI?   \n",
+            "4  What are the advantages of Artificial Intellig...   \n",
+            "\n",
+            "                                              answer  \\\n",
+            "0  Artificial Intelligence (AI) is the capability...   \n",
+            "1  The main types of AI can be categorized into t...   \n",
+            "2  Artificial Intelligence (AI) refers to the cap...   \n",
+            "3  Some real-world applications of AI include:\\n\\...   \n",
+            "4  Artificial Intelligence (AI) has several advan...   \n",
+            "\n",
+            "                                            contexts  \\\n",
+            "0  ['Russell and Norvig agree with Turing that in...   \n",
+            "1  ['Neat vs. scruffy\\n\"Neats\" hope that intellig...   \n",
+            "2  ['Machine learning (ML) is a field of study in...   \n",
+            "3  [\"Hardware and software\\nIn the late 2010s, gr...   \n",
+            "4  [\"Hardware and software\\nIn the late 2010s, gr...   \n",
+            "\n",
+            "                                        ground_truth  faithfulness  \\\n",
+            "0  AI is the simulation of human intelligence by ...           NaN   \n",
+            "1  AI types include Narrow AI (task-specific), Ge...           NaN   \n",
+            "2  AI is the broader field of creating intelligen...           1.0   \n",
+            "3  AI applications include healthcare diagnosis, ...           NaN   \n",
+            "4  AI advantages include faster data processing, ...           NaN   \n",
+            "\n",
+            "   answer_relevancy  context_precision  context_recall  \n",
+            "0          0.772909                NaN             NaN  \n",
+            "1          0.801883               0.70             1.0  \n",
+            "2          0.789858               1.00             1.0  \n",
+            "3          0.835052               0.75             NaN  \n",
+            "4               NaN               1.00             1.0  \n",
+            "\n",
+            "Phase 4 Results:\n",
+            "                                          user_input  \\\n",
+            "0                   What is Artificial Intelligence?   \n",
+            "1                     What are the main types of AI?   \n",
+            "2  What is the difference between AI and Machine ...   \n",
+            "3       What are some real-world applications of AI?   \n",
+            "4  What are the advantages of Artificial Intellig...   \n",
+            "\n",
+            "                                  retrieved_contexts  \\\n",
+            "0  ['Existential risk\\nRecent public debates in a...   \n",
+            "1  [\"Narrow vs. general AI\\nAI researchers are di...   \n",
+            "2  ['Machine learning (ML) is a field of study in...   \n",
+            "3  [\"Applications\\nAI and machine learning techno...   \n",
+            "4  ['Ethics\\nAI has potential benefits and potent...   \n",
+            "\n",
+            "                                            response  \\\n",
+            "0  Artificial intelligence (AI) is the capability...   \n",
+            "1  The main types of AI can be categorized into t...   \n",
+            "2  Machine learning (ML) grew out of the quest fo...   \n",
+            "3  Some real-world applications of AI include:\\n\\...   \n",
+            "4  According to Demis Hassabis of DeepMind, AI ha...   \n",
+            "\n",
+            "                                           reference  faithfulness  \\\n",
+            "0  AI is the simulation of human intelligence by ...           1.0   \n",
+            "1  AI types include Narrow AI (task-specific), Ge...           1.0   \n",
+            "2  AI is the broader field of creating intelligen...           1.0   \n",
+            "3  AI applications include healthcare diagnosis, ...           1.0   \n",
+            "4  AI advantages include faster data processing, ...           1.0   \n",
+            "\n",
+            "   answer_relevancy  context_precision  context_recall  \n",
+            "0          0.768680           0.588889             1.0  \n",
+            "1          0.832858           1.000000             1.0  \n",
+            "2          0.761662           0.950000             1.0  \n",
+            "3          0.835052           1.000000             0.0  \n",
+            "4          0.748840           0.500000             0.0  \n"
+          ]
+        }
+      ],
+      "source": [
+        "# Verify loaded files\n",
+        "\n",
+        "try:\n",
+        "\n",
+        "    print(\n",
+        "        \"\\nPhase 2 Results:\"\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        phase2_df.head()\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        \"\\nPhase 4 Results:\"\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        phase4_df.head()\n",
+        "    )\n",
+        "\n",
+        "except Exception as e:\n",
+        "\n",
+        "    print(e)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uH1_W-sam4N9",
+        "outputId": "02cb91a3-7d1e-488f-9c49-3c9ecfed6957"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Average scores calculated successfully!\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Calculate average metric scores\n",
+        "\n",
+        "try:\n",
+        "\n",
+        "    metrics = [\n",
+        "\n",
+        "        \"faithfulness\",\n",
+        "\n",
+        "        \"answer_relevancy\",\n",
+        "\n",
+        "        \"context_precision\",\n",
+        "\n",
+        "        \"context_recall\"\n",
+        "\n",
+        "    ]\n",
+        "\n",
+        "    phase2_scores = {}\n",
+        "\n",
+        "    phase4_scores = {}\n",
+        "\n",
+        "    for metric in metrics:\n",
+        "\n",
+        "        phase2_scores[\n",
+        "            metric\n",
+        "        ] = phase2_df[\n",
+        "            metric\n",
+        "        ].mean()\n",
+        "\n",
+        "        phase4_scores[\n",
+        "            metric\n",
+        "        ] = phase4_df[\n",
+        "            metric\n",
+        "        ].mean()\n",
+        "\n",
+        "    print(\n",
+        "        \"Average scores calculated successfully!\"\n",
+        "    )\n",
+        "\n",
+        "except Exception as e:\n",
+        "\n",
+        "    print(e)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "k6Lh3umFm7jF",
+        "outputId": "dc850f91-1af0-410e-a229-9c3acb8254f8"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "Phase 2 Scores\n",
+            "\n",
+            "{'faithfulness': np.float64(0.9166666666666666), 'answer_relevancy': np.float64(0.7907639009412731), 'context_precision': np.float64(0.9999999999713334), 'context_recall': np.float64(1.0)}\n",
+            "\n",
+            "Phase 4 Scores\n",
+            "\n",
+            "{'faithfulness': np.float64(1.0), 'answer_relevancy': np.float64(0.803989889524934), 'context_precision': np.float64(0.9258333333131874), 'context_recall': np.float64(1.0)}\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Display average scores\n",
+        "\n",
+        "try:\n",
+        "\n",
+        "    print(\n",
+        "        \"\\nPhase 2 Scores\\n\"\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        phase2_scores\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        \"\\nPhase 4 Scores\\n\"\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        phase4_scores\n",
+        "    )\n",
+        "\n",
+        "except Exception as e:\n",
+        "\n",
+        "    print(e)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ITtPAqdSnMzS",
+        "outputId": "3a5edaea-ddc1-4da9-b2fd-63c1746cdd25"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "              Metric   Phase 2   Phase 4  Improvement\n",
+            "0       Faithfulness  0.916667  1.000000     0.083333\n",
+            "1   Answer Relevancy  0.790764  0.803990     0.013226\n",
+            "2  Context Precision  1.000000  0.925833    -0.074167\n",
+            "3     Context Recall  1.000000  1.000000     0.000000\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Create before-and-after comparison table\n",
+        "\n",
+        "try:\n",
+        "\n",
+        "    comparison_df = pd.DataFrame({\n",
+        "\n",
+        "        \"Metric\": [\n",
+        "\n",
+        "            \"Faithfulness\",\n",
+        "\n",
+        "            \"Answer Relevancy\",\n",
+        "\n",
+        "            \"Context Precision\",\n",
+        "\n",
+        "            \"Context Recall\"\n",
+        "\n",
+        "        ],\n",
+        "\n",
+        "        \"Phase 2\": [\n",
+        "\n",
+        "            phase2_scores[\n",
+        "                \"faithfulness\"\n",
+        "            ],\n",
+        "\n",
+        "            phase2_scores[\n",
+        "                \"answer_relevancy\"\n",
+        "            ],\n",
+        "\n",
+        "            phase2_scores[\n",
+        "                \"context_precision\"\n",
+        "            ],\n",
+        "\n",
+        "            phase2_scores[\n",
+        "                \"context_recall\"\n",
+        "            ]\n",
+        "\n",
+        "        ],\n",
+        "\n",
+        "        \"Phase 4\": [\n",
+        "\n",
+        "            phase4_scores[\n",
+        "                \"faithfulness\"\n",
+        "            ],\n",
+        "\n",
+        "            phase4_scores[\n",
+        "                \"answer_relevancy\"\n",
+        "            ],\n",
+        "\n",
+        "            phase4_scores[\n",
+        "                \"context_precision\"\n",
+        "            ],\n",
+        "\n",
+        "            phase4_scores[\n",
+        "                \"context_recall\"\n",
+        "            ]\n",
+        "\n",
+        "        ]\n",
+        "\n",
+        "    })\n",
+        "\n",
+        "    comparison_df[\n",
+        "        \"Improvement\"\n",
+        "    ] = (\n",
+        "\n",
+        "        comparison_df[\n",
+        "            \"Phase 4\"\n",
+        "        ]\n",
+        "\n",
+        "        -\n",
+        "\n",
+        "        comparison_df[\n",
+        "            \"Phase 2\"\n",
+        "        ]\n",
+        "\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        comparison_df\n",
+        "    )\n",
+        "\n",
+        "except Exception as e:\n",
+        "\n",
+        "    print(e)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "j69R1Kt-nSQQ",
+        "outputId": "e5bfaffd-a7da-45c1-80dd-4d7b6856513d"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "              Metric   Phase 2   Phase 4  Improvement\n",
+            "0       Faithfulness  0.916667  1.000000     0.083333\n",
+            "1   Answer Relevancy  0.790764  0.803990     0.013226\n",
+            "2  Context Precision  1.000000  0.925833    -0.074167\n",
+            "3     Context Recall  1.000000  1.000000     0.000000\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Create before-and-after comparison table\n",
+        "\n",
+        "try:\n",
+        "\n",
+        "    comparison_df = pd.DataFrame({\n",
+        "\n",
+        "        \"Metric\": [\n",
+        "\n",
+        "            \"Faithfulness\",\n",
+        "\n",
+        "            \"Answer Relevancy\",\n",
+        "\n",
+        "            \"Context Precision\",\n",
+        "\n",
+        "            \"Context Recall\"\n",
+        "\n",
+        "        ],\n",
+        "\n",
+        "        \"Phase 2\": [\n",
+        "\n",
+        "            phase2_scores[\n",
+        "                \"faithfulness\"\n",
+        "            ],\n",
+        "\n",
+        "            phase2_scores[\n",
+        "                \"answer_relevancy\"\n",
+        "            ],\n",
+        "\n",
+        "            phase2_scores[\n",
+        "                \"context_precision\"\n",
+        "            ],\n",
+        "\n",
+        "            phase2_scores[\n",
+        "                \"context_recall\"\n",
+        "            ]\n",
+        "\n",
+        "        ],\n",
+        "\n",
+        "        \"Phase 4\": [\n",
+        "\n",
+        "            phase4_scores[\n",
+        "                \"faithfulness\"\n",
+        "            ],\n",
+        "\n",
+        "            phase4_scores[\n",
+        "                \"answer_relevancy\"\n",
+        "            ],\n",
+        "\n",
+        "            phase4_scores[\n",
+        "                \"context_precision\"\n",
+        "            ],\n",
+        "\n",
+        "            phase4_scores[\n",
+        "                \"context_recall\"\n",
+        "            ]\n",
+        "\n",
+        "        ]\n",
+        "\n",
+        "    })\n",
+        "\n",
+        "    comparison_df[\n",
+        "        \"Improvement\"\n",
+        "    ] = (\n",
+        "\n",
+        "        comparison_df[\n",
+        "            \"Phase 4\"\n",
+        "        ]\n",
+        "\n",
+        "        -\n",
+        "\n",
+        "        comparison_df[\n",
+        "            \"Phase 2\"\n",
+        "        ]\n",
+        "\n",
+        "    )\n",
+        "\n",
+        "    print(\n",
+        "        comparison_df\n",
+        "    )\n",
+        "\n",
+        "except Exception as e:\n",
+        "\n",
+        "    print(e)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "j3wzGxFsrlJF"
+      },
+      "source": [
+        "**Evaluation Summary**\n",
+        "\n",
+        "The baseline (**Phase 2**) and improved (**Phase 4**) RAG systems were evaluated using **RAGAS metrics** on the same set of evaluation questions. A comparison table was created to measure the impact of **Better Chunking** and **Hybrid Search**.\n",
+        "\n",
+        "**RAGAS Metrics**\n",
+        "\n",
+        "• **Faithfulness** – Checks whether the generated answer is supported by the retrieved context.\n",
+        "\n",
+        "• **Answer Relevancy** – Measures how well the answer addresses the user's question.\n",
+        "\n",
+        "• **Context Precision** – Measures the relevance of the retrieved chunks.\n",
+        "\n",
+        "• **Context Recall** – Measures whether all relevant information was retrieved.\n",
+        "\n",
+        "\n",
+        "**Results**\n",
+        "\n",
+        "• **Faithfulness:** 0.9167 → 1.0000\n",
+        "\n",
+        "• **Answer Relevancy:** 0.7908 → 0.8040\n",
+        "\n",
+        "• **Context Precision:** 1.0000 → 0.9258\n",
+        "\n",
+        "• **Context Recall:** 1.0000 → 1.0000\n",
+        "\n",
+        "The improved system achieved better answer grounding and maintained perfect context recall. The slight decrease in **Context Precision** is expected because **Hybrid Search** retrieves a broader set of relevant chunks by combining vector search and BM25 retrieval, improving coverage while introducing a small amount of additional context.\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "WmppZ-NIsDcZ"
+      },
+      "outputs": [],
+      "source": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
