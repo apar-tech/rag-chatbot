@@ -13,4 +13,4 @@ ragas
 datasets
 pandas
 rank_bm25
-sentence transformers
+sentence_transformers
