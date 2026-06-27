@@ -68,8 +68,8 @@ def load_rag():
 
         # Initialize clients
         try:
-            gemini = genai.Client(api_key=userdata.get("gemini_key")
-            groq = Groq(api_key=userdata.get("groq_key")
+            gemini = genai.Client(api_key=userdata.get("geminikey")
+            groq = Groq(api_key=userdata.get("groqkey")
         except Exception as e:
             st.error(f"⚠️ Failed to initialize API clients: {str(e)}")
             return None
