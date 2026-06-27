@@ -76,8 +76,8 @@ def load_rag():
 
         # Load ChromaDB
         try:
-            chroma = chromadb.PersistentClient(path="/content/drive/MyDrive/networking_chromadb_phase4")
-            collection = chroma.get_collection("/content/drive/MyDrive/networking_chromadb_phase4")
+            chroma = chromadb.PersistentClient(path="networking_chromadb_phase4")
+            collection = chroma.get_collection("networking_chromadb_phase4")
         except Exception as e:
             st.error(f"⚠️ Failed to load ChromaDB: {str(e)}")
             st.info("Make sure 'networking_chromadb_phase4' folder exists")
