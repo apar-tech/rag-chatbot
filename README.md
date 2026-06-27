@@ -1,109 +1,32 @@
-# Retrieval-Augmented Generation (RAG) Chatbot
 
-## 📌 Project Overview
+# 🌐 Networking RAG Assistant
 
-This project implements a **Retrieval-Augmented Generation (RAG) Chatbot** using PDF documents, Hugging Face Embeddings, ChromaDB Vector Database, and Groq LLM. The chatbot retrieves relevant information from documents and generates accurate responses using Large Language Models.
+A production-ready RAG system with **Better Chunking** and **Hybrid Search**.
 
----
+## 📊 Improvements
 
-## 🛠️ Technologies Used
+### 1️⃣ Better Chunking
+- Chunk Size: 1000 characters
+- Overlap: 200 characters
+- Smart boundaries
 
-* Python
-* Google Colab
-* Hugging Face Embeddings
-* ChromaDB
-* Groq LLM
-* Gemini API
-* LangGraph
-* GitHub
-* PyPDF
-* LangChain
+### 2️⃣ Hybrid Search
+- Vector Search + BM25
+- Combined results
 
----
+## 📊 Evaluation Results
 
-## 📅 Internship Details
+| Metric | Phase 2 | Phase 4 | Improvement |
+|--------|---------|---------|-------------|
+| Faithfulness | 0.9167 | 1.0000 | +0.0833 |
+| Answer Relevancy | 0.7908 | 0.8040 | +0.0132 |
+| Context Recall | 1.0000 | 1.0000 | 0.0000 |
 
-* **Internship Start Date:** 30/05/2026
-* **Mentor:** Ajith Hariharan
+## 🚀 Deployment
 
----
+1. Push to GitHub
+2. Deploy on Streamlit Cloud
+3. Add secrets: GEMINI_API_KEY, GROQ_API_KEY
 
-## 🚀 Phase 1 Progress
-
-### ✅ Completed Tasks
-
-* Groq API configured and tested successfully
-* Gemini API configured successfully
-* Google Colab environment setup completed
-* GitHub repository setup completed
-* Generated embeddings for 20 sentences
-* Generated query embeddings
-* Implemented cosine similarity search
-* Implemented Top-5 similarity retrieval
-* Explored semantic similarity using embeddings
-* Created a short note on RAG and its usefulness
-* Designed the RAG pipeline architecture using Excalidraw
-* Selected LangGraph as the development framework
-
----
-
-## 📚 Key Learnings
-
-### Embeddings
-
-* Understanding vector representations of text
-* Generating embeddings using pre-trained models
-* Comparing text similarity using vector operations
-
-### Similarity Search
-
-* Cosine similarity calculation
-* Semantic search and retrieval
-* Top-k document retrieval techniques
-
-### Retrieval-Augmented Generation (RAG)
-
-* RAG architecture and workflow
-* Retrieval and generation pipeline
-* Importance of context-aware responses
-
-### APIs and Frameworks
-
-* Groq API integration
-* Gemini API integration
-* LangGraph fundamentals
-* LangChain ecosystem overview
-
-### Development Tools
-
-* GitHub repository management
-* Version control using Git
-* Google Colab development environment
-
----
-
-## 🔄 Current Workflow
-
-1. Load documents (PDFs)
-2. Split documents into chunks
-3. Generate embeddings
-4. Store embeddings in ChromaDB
-5. Retrieve relevant chunks using similarity search
-6. Pass retrieved context to Groq LLM
-7. Generate final response
-
----
-
-## 🎯 Next Phase Goals
-
-* Load and process PDF documents
-* Implement document chunking
-* Create ChromaDB vector store
-* Integrate Hugging Face embeddings
-* Build complete retrieval pipeline
-* Connect Groq LLM with retrieved context
-* Develop conversational chatbot interface
-* Evaluate chatbot performance using RAGAS
-* Deploy the application
-
----
+## 🔗 Live Demo
+[https://networking-rag.streamlit.app](https://networking-rag.streamlit.app)
