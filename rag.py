@@ -9,7 +9,6 @@ from config import (
     GROQ_API_KEY,
     CHROMA_DB_PATH,
     CHUNKS_FILE,
-    COLLECTION_NAME,
     EMBEDDING_MODEL,
     LLM_MODEL,
     TOP_K
@@ -32,7 +31,7 @@ except Exception as e:
 
 try:
     client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
-    collection = client.get_collection(COLLECTION_NAME)
+    collection = client.get_collection(digital_doc_phase4)
 except Exception as e:
     raise Exception(f"Failed to load ChromaDB: {e}")
 
