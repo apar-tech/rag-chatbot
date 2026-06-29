@@ -12,10 +12,6 @@ GROQ_API_KEY = st.secrets["groqkey"]
 CHROMA_DB_PATH = "networking_chromadb_phase4"
 CHUNKS_FILE = "improved_chunks.pkl"
 
-# ==========================
-# ChromaDB Collection
-# ==========================
-COLLECTION_NAME = "networking_chromadb_phase4"
 
 # ==========================
 # Models
