@@ -59,17 +59,17 @@ def load_rag():
     try:
         # Get API keys from secrets
         try:
-            gemini_key = st.secrets["GEMINI_API_KEY"]
-            groq_key = st.secrets["GROQ_API_KEY"]
+            geminikey = st.secrets["geminikey"]
+            groqkey = st.secrets["groqkey"]
         except Exception as e:
             st.error(f"⚠️ API keys not found in secrets: {str(e)}")
-            st.info("Please add GEMINI_API_KEY and GROQ_API_KEY to .streamlit/secrets.toml")
+            st.info("Please add geminikey and groqkey to .streamlit/secrets.toml")
             return None
 
         # Initialize clients
         try:
-            gemini = genai.Client(api_key=gemini_key)
-            groq = Groq(api_key=groq_key)
+            gemini = genai.Client(api_key=geminikey)
+            groq = Groq(api_key=groqkey)
         except Exception as e:
             st.error(f"⚠️ Failed to initialize API clients: {str(e)}")
             return None
@@ -77,7 +77,7 @@ def load_rag():
         # Load ChromaDB
         try:
             chroma = chromadb.PersistentClient(path="./networking_chromadb_phase4")
-            collection = chroma.get_collection("networking_docs_phase4")
+            collection = chroma.get_collection("digital_docs_phase4")
         except Exception as e:
             st.error(f"⚠️ Failed to load ChromaDB: {str(e)}")
             st.info("Make sure 'networking_chromadb_phase4' folder exists")
